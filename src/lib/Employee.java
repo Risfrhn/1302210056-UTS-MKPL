@@ -15,7 +15,7 @@ public class Employee {
     private int monthJoined;
     private int dayJoined;
     private boolean isForeigner;
-    private Gender Gender;
+    private Gender Gender; /*Gender Cowo atau Cewe */
     private String spouseName;
     private String spouseIdNumber;
     private List<String> childNames;
