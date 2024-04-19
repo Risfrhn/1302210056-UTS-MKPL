@@ -1,22 +1,29 @@
 package lib;
 
-import java.util.List;
+
 import java.time.LocalDate;
+
 
 
 public class EmployeSalary {
     private Employee employee;
+	private FamilyEmployee FamilyEmployee;
     private int monthlySalary;
     private int otherMonthlyIncome;
     private int annualDeductible;
 	private int monthWorkingInYear;
 
 
-    public EmployeSalary(Employee employee, int monthlySalary, int otherMonthlyIncome, int annualDeductible) {
+    public EmployeSalary(Employee employee, FamilyEmployee FamilyEmployee, int monthlySalary, int otherMonthlyIncome, int annualDeductible) {
         this.employee = employee;
+		this.FamilyEmployee = FamilyEmployee;
         this.monthlySalary = monthlySalary;
         this.otherMonthlyIncome = otherMonthlyIncome;
         this.annualDeductible = annualDeductible;
+    }
+
+	public FamilyEmployee getFamilyEmployee() {
+        return FamilyEmployee;
     }
 
 	public Employee getEmployee() {
@@ -54,6 +61,14 @@ public class EmployeSalary {
 	public void setAdditionalIncome(int income) {	
 		this.otherMonthlyIncome = income;
 	}
+	public void setSpouse(String spouseName, String spouseIdNumber) {
+		this.FamilyEmployee.setSpouseName(spouseName);
+        this.FamilyEmployee.setSpouseIdNumber(spouseIdNumber);
+	}
+	
+	public void addChild(String childName, String childIdNumber) {
+		this.FamilyEmployee.addChild(childName, childIdNumber);
+	}
 
 	//menentukan pajak pegawai berdasarkan lama bekerja
     public int calculateAnnualIncomeTax() {
@@ -68,9 +83,6 @@ public class EmployeSalary {
             monthWorkingInYear = 12;
         }
 
-        return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, employee.getSpouseIdNumber().equals(""), employee.getChildIdNumbers().size());
+        return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, FamilyEmployee.getSpouseIdNumber().equals(""), FamilyEmployee.getChildren().size());
     }
-
-    
-    
 }

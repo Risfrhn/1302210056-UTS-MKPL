@@ -1,9 +1,6 @@
 package lib;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.LinkedList;
-import java.util.List;
+
 
 public class Employee {
     private String employeeId;
@@ -16,10 +13,7 @@ public class Employee {
     private int dayJoined;
     private boolean isForeigner;
     private Gender Gender; /*Gender Cowo atau Cewe */
-    private String spouseName;
-    private String spouseIdNumber;
-    private List<String> childNames;
-    private List<String> childIdNumbers;
+    private FamilyEmployee FamilyEmployee;
 
     public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, Gender Gender) {
         this.employeeId = employeeId;
@@ -32,8 +26,7 @@ public class Employee {
         this.dayJoined = dayJoined;
         this.isForeigner = isForeigner;
         this.Gender = Gender;
-        this.childNames = new LinkedList<>();
-        this.childIdNumbers = new LinkedList<>();
+        this.FamilyEmployee = new FamilyEmployee();
     }
 
     public String getEmployeeId() {
@@ -80,32 +73,13 @@ public class Employee {
         this.Gender = Gender;
     }
 
-    public String getSpouseName() {
-        return spouseName;
+    public FamilyEmployee getFamilyEmployee() {
+        return FamilyEmployee;
     }
 
-
-    public String getSpouseIdNumber() {
-        return spouseIdNumber;
+    public void setFamilyEmployee(FamilyEmployee FamilyEmployee) {
+        this.FamilyEmployee = FamilyEmployee;
     }
-
-    public void setSpouse(String spouseName, String spouseIdNumber) {
-		this.spouseName = spouseName;
-		this.spouseIdNumber = idNumber;
-	}
-
-    public List<String> getChildNames() {
-        return childNames;
-    }
-
-    public List<String> getChildIdNumbers() {
-        return childIdNumbers;
-    }
-
-	public void addChild(String childName, String childIdNumber) {
-		childNames.add(childName);
-		childIdNumbers.add(childIdNumber);
-	}
 }
 	
 	
