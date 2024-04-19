@@ -15,7 +15,7 @@ public class Employee {
     private int monthJoined;
     private int dayJoined;
     private boolean isForeigner;
-    private Gender Gender;
+    private Gender Gender; /*gender Cowo atau Cewe sesuai dengan enum */
     private String spouseName;
     private String spouseIdNumber;
     private List<String> childNames;
